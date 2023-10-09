@@ -1,4 +1,5 @@
-import Button from '../common/Button';
+import { Button, HStack, Input } from "@chakra-ui/react";
+import { useState } from "react";
 
 type Props = {
   searchTerm: string;
@@ -14,16 +15,16 @@ const SearchBar = ({
   onSearchClick,
 }: Props) => {
   return (
-    <div>
-      <Button onClick={onDeleteSearch}>Delete</Button>
-
-      <input
+    <HStack>
+      <Input
         value={searchTerm}
         onChange={(event) => onSearchChange(event.target.value)}
+        bgColor="white"
+        placeholder="Search for tasks"
       />
 
-      <Button onClick={onSearchClick}>Show</Button>
-    </div>
+      <Button onClick={onDeleteSearch}>Clear</Button>
+    </HStack>
   );
 };
 
